@@ -1,6 +1,12 @@
-import User from '../domain'
+import User, { IUser } from '../domain'
+import mixpanel from '../../../tools/mixpanel'
 
-export default function (name: string, email: string) {
-  const user = new User({ name, email })
-  return user
+function integrateOnMixpanelEngage (user: IUser) {
+  return mixpanel.track('event name', user)
+}
+
+export default function (name: string, email: string): IUser {
+  const newCreatedUser = new User({ name, email })
+  integrateOnMixpanelEngage(newCreatedUser)
+  return newCreatedUser
 }
