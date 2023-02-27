@@ -1,11 +1,11 @@
-interface IUser {
+export interface IUser {
   name: string
   email: string
 }
 
-class User implements IUser {
-  public name
-  public email
+class User {
+  public name: string
+  public email: string
 
   constructor (args: any) {
     this.name = args.name
