@@ -8,7 +8,7 @@ function callCreateUserEventMixpanel (user: IUser) {
     depois de chamar a função.
   */
 
-  const userCopy = { ...user }
+  const userCopy = { name: user.name, disntinct_id: user.email }
   const eventName = 'CreateUser'
   mixpanel.track(eventName, userCopy)
   return { ...userCopy, eventName }
