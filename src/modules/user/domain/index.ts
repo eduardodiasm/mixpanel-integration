@@ -7,7 +7,7 @@ class User {
   public name: string
   public email: string
 
-  constructor (args: any) {
+  constructor (args: IUser) {
     this.name = args.name
     this.email = args.email
   }
